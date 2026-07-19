@@ -594,13 +594,13 @@ ORDER BY total_customers DESC;
 
 ### DAG Details
 
-![Airflow DAG Details](assets/airflow-details.png)
+![Airflow DAG Details](assets/airflow-details.jpg)
 
 ---
 
 ### DAG Graph
 
-![Airflow DAG Graph](assets/airflow-graph.png)
+![Airflow DAG Graph](assets/airflow-graph.jpg)
 
 ---
 
@@ -608,31 +608,31 @@ ORDER BY total_customers DESC;
 
 ### Banking Lake
 
-![Banking Lake](assets/minio-root.png)
+![Banking Lake](assets/minio-root.jpg)
 
 ---
 
 ### Bronze Layer
 
-![Bronze Layer](assets/minio-bronze.png)
+![Bronze Layer](assets/minio-bronze.jpg)
 
 ---
 
 ### Silver Layer
 
-![Silver Layer](assets/minio-silver.png)
+![Silver Layer](assets/minio-silver.jpg)
 
 ---
 
 ### Gold Layer
 
-![Gold Layer](assets/minio-gold.png)
+![Gold Layer](assets/minio-gold.jpg)
 
 ---
 
 ### Rejected Layer
 
-![Rejected Layer](assets/minio-rejected.png)
+![Rejected Layer](assets/minio-rejected.jpg)
 
 ---
 
@@ -640,13 +640,13 @@ ORDER BY total_customers DESC;
 
 ### Customer Gold Data
 
-![DuckDB Query](assets/duckdb-query.png)
+![DuckDB Query](assets/duckdb-query.jpg)
 
 ---
 
 ### Business Analytics Query
 
-![DuckDB Aggregation](assets/duckdb-aggregation.png)
+![DuckDB Aggregation](assets/duckdb-aggregation.jpg)
 
 ---
 
@@ -679,7 +679,7 @@ Current Status:
 
 ### Test Results
 
-![PyTest](assets/pytest.png)
+![PyTest](assets/pytest.jpg)
 
 ---
 
