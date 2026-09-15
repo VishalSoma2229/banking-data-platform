@@ -48,3 +48,9 @@ htmlcov/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# MinIO
+minio_store/
+__pycache__/
+*.pyc
+.env

@@ -1,0 +1,339 @@
+* SnowSQL * v1.5.1
+Type SQL statements or !help
+vishalsoma2229#COMPUTE_WH@(no database).(no schema)>USE ROLE ACCOUNTADMIN;
++----------------------------------+
+| status                           |
+|----------------------------------|
+| Statement executed successfully. |
++----------------------------------+
+1 Row(s) produced. Time Elapsed: 0.064s
+vishalsoma2229#COMPUTE_WH@(no database).(no schema)>USE DATABASE BANKING_DB;
++----------------------------------+
+| status                           |
+|----------------------------------|
+| Statement executed successfully. |
++----------------------------------+
+1 Row(s) produced. Time Elapsed: 0.307s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>USE SCHEMA PUBLIC;
++----------------------------------+
+| status                           |
+|----------------------------------|
+| Statement executed successfully. |
++----------------------------------+
+1 Row(s) produced. Time Elapsed: 0.070s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>-- Run inside SnowSQL command line
+                                            PUT file://C:/workspace/PySpark/test/target_data/CUSTOMER_MASTER/*.parquet
+                                            @BANKING_DB.PUBLIC.banking_stage/customer_master/ AUTO_COMPRESS=FALSE;
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                                                              | target                                                              | source_size | target_size | source_compression | target_compression | status   | message |
+|---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| part-00000-23084d28-2deb-4cc7-b741-27818eefd97a-c000.snappy.parquet | part-00000-23084d28-2deb-4cc7-b741-27818eefd97a-c000.snappy.parquet |     6410045 |     6410048 | PARQUET            | PARQUET            | UPLOADED |         |
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 2.450s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>LIST @BANKING_DB.PUBLIC.banking_stage;
++---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------+
+| name                                                                                              |    size | md5                              | last_modified                 |
+|---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------|
+| banking_stage/customer_master/part-00000-23084d28-2deb-4cc7-b741-27818eefd97a-c000.snappy.parquet | 6410048 | 4e586d6f0ccf80c3e4e0db4efa4278c9 | Sun, 13 Sep 2026 12:38:29 GMT |
++---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------+
+1 Row(s) produced. Time Elapsed: 0.342s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>LS @banking_stage;
++---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------+
+| name                                                                                              |    size | md5                              | last_modified                 |
+|---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------|
+| banking_stage/customer_master/part-00000-23084d28-2deb-4cc7-b741-27818eefd97a-c000.snappy.parquet | 6410048 | 4e586d6f0ccf80c3e4e0db4efa4278c9 | Sun, 13 Sep 2026 12:38:29 GMT |
++---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------+
+1 Row(s) produced. Time Elapsed: 0.094s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>PUT file://C:/workspace/PySpark/test/target_data/ACCOUNT_MASTER/*.parquet @BANKING_DB.PUBLIC.banking_stage/account_master/ AUTO_COMPRESS=FALSE;
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                                                              | target                                                              | source_size | target_size | source_compression | target_compression | status   | message |
+|---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| part-00000-31a6d74e-fb82-4b15-975c-e88e45585726-c000.snappy.parquet | part-00000-31a6d74e-fb82-4b15-975c-e88e45585726-c000.snappy.parquet |     5610114 |     5610128 | PARQUET            | PARQUET            | UPLOADED |         |
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 1.779s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>LS @banking_stage;
++---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------+
+| name                                                                                              |    size | md5                              | last_modified                 |
+|---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------|
+| banking_stage/account_master/part-00000-31a6d74e-fb82-4b15-975c-e88e45585726-c000.snappy.parquet  | 5610128 | c1c042ab863ed685d95bb732d27f0d8a | Sun, 13 Sep 2026 12:49:00 GMT |
+| banking_stage/customer_master/part-00000-23084d28-2deb-4cc7-b741-27818eefd97a-c000.snappy.parquet | 6410048 | 4e586d6f0ccf80c3e4e0db4efa4278c9 | Sun, 13 Sep 2026 12:38:29 GMT |
++---------------------------------------------------------------------------------------------------+---------+----------------------------------+-------------------------------+
+2 Row(s) produced. Time Elapsed: 0.109s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>PUT file://C:/workspace/PySpark/test/target_data/FD_MASTER/*.parquet @BANKING_DB.PUBLIC.banking_stage/fd_master/ AUTO_COMPRESS=FALSE;
+
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                                                              | target                                                              | source_size | target_size | source_compression | target_compression | status   | message |
+|---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| part-00000-27a1cca1-28f9-4089-ab12-6d38ab31316e-c000.snappy.parquet | part-00000-27a1cca1-28f9-4089-ab12-6d38ab31316e-c000.snappy.parquet |      810742 |      810752 | PARQUET            | PARQUET            | UPLOADED |         |
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 0.281s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>PUT file://C:/workspace/PySpark/test/target_data/LOAN_MASTER/*.parquet @BANKING_DB.PUBLIC.banking_stage/loan_master/ AUTO_COMPRESS=FALSE;
+
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                                                              | target                                                              | source_size | target_size | source_compression | target_compression | status   | message |
+|---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| part-00000-6683e30a-9acb-444d-8da0-5d4d9b61c100-c000.snappy.parquet | part-00000-6683e30a-9acb-444d-8da0-5d4d9b61c100-c000.snappy.parquet |      963273 |      963280 | PARQUET            | PARQUET            | UPLOADED |         |
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 0.919s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>PUT file://C:/workspace/PySpark/test/target_data/CARD_MASTER/*.parquet @BANKING_DB.PUBLIC.banking_stage/card_master/ AUTO_COMPRESS=FALSE;
+
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                                                              | target                                                              | source_size | target_size | source_compression | target_compression | status   | message |
+|---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| part-00000-c439977e-0317-4cb3-8549-548205dc905b-c000.snappy.parquet | part-00000-c439977e-0317-4cb3-8549-548205dc905b-c000.snappy.parquet |     2166596 |     2166608 | PARQUET            | PARQUET            | UPLOADED |         |
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 0.641s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>PUT file://C:/workspace/PySpark/test/target_data/BRANCH_MASTER/*.parquet @BANKING_DB.PUBLIC.banking_stage/branch_master/ AUTO_COMPRESS=FALSE;
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                                                              | target                                                              | source_size | target_size | source_compression | target_compression | status   | message |
+|---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| part-00000-d7dcf31f-f840-4056-bfcd-063c5854e3a9-c000.snappy.parquet | part-00000-d7dcf31f-f840-4056-bfcd-063c5854e3a9-c000.snappy.parquet |       15758 |       15760 | PARQUET            | PARQUET            | UPLOADED |         |
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 0.438s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>PUT file://C:/workspace/PySpark/test/target_data/TRANSACTION_MASTER/*.parquet @BANKING_DB.PUBLIC.banking_stage/transaction_master/ AUTO_COMPRESS=FALSE;
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                                                              | target                                                              | source_size | target_size | source_compression | target_compression | status   | message |
+|---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| part-00000-ce15b2f5-1d37-4e64-a470-8d3c227e36aa-c000.snappy.parquet | part-00000-ce15b2f5-1d37-4e64-a470-8d3c227e36aa-c000.snappy.parquet |    38823188 |    38823200 | PARQUET            | PARQUET            | UPLOADED |         |
++---------------------------------------------------------------------+---------------------------------------------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 7.773s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>LS @banking_stage;
++------------------------------------------------------------------------------------------------------+----------+----------------------------------+-------------------------------+
+| name                                                                                                 |     size | md5                              | last_modified                 |
+|------------------------------------------------------------------------------------------------------+----------+----------------------------------+-------------------------------|
+| banking_stage/account_master/part-00000-31a6d74e-fb82-4b15-975c-e88e45585726-c000.snappy.parquet     |  5610128 | c1c042ab863ed685d95bb732d27f0d8a | Sun, 13 Sep 2026 12:49:00 GMT |
+| banking_stage/branch_master/part-00000-d7dcf31f-f840-4056-bfcd-063c5854e3a9-c000.snappy.parquet      |    15760 | 7de8a221edf529a0d72b8a070f3d4441 | Sun, 13 Sep 2026 12:49:46 GMT |
+| banking_stage/card_master/part-00000-c439977e-0317-4cb3-8549-548205dc905b-c000.snappy.parquet        |  2166608 | f5cca4202e67189814e3d50717ee0cca | Sun, 13 Sep 2026 12:49:33 GMT |
+| banking_stage/customer_master/part-00000-23084d28-2deb-4cc7-b741-27818eefd97a-c000.snappy.parquet    |  6410048 | 4e586d6f0ccf80c3e4e0db4efa4278c9 | Sun, 13 Sep 2026 12:38:29 GMT |
+| banking_stage/fd_master/part-00000-27a1cca1-28f9-4089-ab12-6d38ab31316e-c000.snappy.parquet          |   810752 | 5a5bd3e4193cb626f2d4301c12a30fb4 | Sun, 13 Sep 2026 12:49:19 GMT |
+| banking_stage/loan_master/part-00000-6683e30a-9acb-444d-8da0-5d4d9b61c100-c000.snappy.parquet        |   963280 | d81906c7420d52a1c82dbbaa7e26746b | Sun, 13 Sep 2026 12:49:27 GMT |
+| banking_stage/transaction_master/part-00000-ce15b2f5-1d37-4e64-a470-8d3c227e36aa-c000.snappy.parquet | 38823200 | 70fd97f50fb29ba9870fc734bc79bcaa | Sun, 13 Sep 2026 12:50:05 GMT |
++------------------------------------------------------------------------------------------------------+----------+----------------------------------+-------------------------------+
+7 Row(s) produced. Time Elapsed: 0.141s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>CREATE OR REPLACE TABLE CUSTOMER_MASTER (
+                                                customer_id         VARCHAR(50),
+                                                first_name          VARCHAR(100),
+                                                last_name           VARCHAR(100),
+                                                gender              VARCHAR(10),
+                                                date_of_birth       DATE,
+                                                email               VARCHAR(150),
+                                                phone               VARCHAR(20),
+                                                pan_number          VARCHAR(20),
+                                                aadhaar_number      VARCHAR(20),
+                                                occupation          VARCHAR(100),
+                                                annual_income       NUMBER(15,2),
+                                                marital_status      VARCHAR(20),
+                                                customer_since      DATE,
+                                                kyc_status          VARCHAR(20),
+                                                risk_category       VARCHAR(20),
+                                                branch_id           VARCHAR(20),
+                                                city                VARCHAR(100),
+                                                state               VARCHAR(100),
+                                                country             VARCHAR(100),
+                                                customer_status     VARCHAR(20),
+                                                ingestion_timestamp TIMESTAMP_NTZ
+                                            );
++---------------------------------------------+
+| status                                      |
+|---------------------------------------------|
+| Table CUSTOMER_MASTER successfully created. |
++---------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.297s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>CREATE OR REPLACE TABLE ACCOUNT_MASTER (
+                                                account_number      VARCHAR(50),
+                                                customer_id         VARCHAR(50),
+                                                account_type        VARCHAR(30),
+                                                balance             NUMBER(15,2),
+                                                currency            VARCHAR(10),
+                                                account_status      VARCHAR(20),
+                                                opened_date         DATE,
+                                                branch_id           VARCHAR(20),
+                                                ingestion_timestamp TIMESTAMP_NTZ
+                                            );
++--------------------------------------------+
+| status                                     |
+|--------------------------------------------|
+| Table ACCOUNT_MASTER successfully created. |
++--------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.231s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>CREATE OR REPLACE TABLE BRANCH_MASTER (
+                                                branch_id           VARCHAR(20),
+                                                branch_name         VARCHAR(100),
+                                                city                VARCHAR(100),
+                                                state               VARCHAR(100),
+                                                ifsc_code           VARCHAR(20),
+                                                ingestion_timestamp TIMESTAMP_NTZ
+                                            );
++-------------------------------------------+
+| status                                    |
+|-------------------------------------------|
+| Table BRANCH_MASTER successfully created. |
++-------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.266s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>CREATE OR REPLACE TABLE CARD_MASTER (
+                                                card_number         VARCHAR(50),
+                                                account_number      VARCHAR(50),
+                                                customer_id         VARCHAR(50),
+                                                card_type           VARCHAR(30),
+                                                card_category       VARCHAR(30),
+                                                expiry_date         DATE,
+                                                credit_limit        NUMBER(15,2),
+                                                available_credit    NUMBER(15,2),
+                                                card_status         VARCHAR(20),
+                                                ingestion_timestamp TIMESTAMP_NTZ
+                                            );
++-----------------------------------------+
+| status                                  |
+|-----------------------------------------|
+| Table CARD_MASTER successfully created. |
++-----------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.223s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>CREATE OR REPLACE TABLE FD_MASTER (
+                                                fd_account_number   VARCHAR(50),
+                                                customer_id         VARCHAR(50),
+                                                deposit_amount      NUMBER(15,2),
+                                                interest_rate       NUMBER(5,2),
+                                                tenure_months       INT,
+                                                start_date          DATE,
+                                                maturity_date       DATE,
+                                                maturity_amount     NUMBER(15,2),
+                                                fd_status           VARCHAR(20),
+                                                ingestion_timestamp TIMESTAMP_NTZ
+                                            );
++---------------------------------------+
+| status                                |
+|---------------------------------------|
+| Table FD_MASTER successfully created. |
++---------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.250s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>CREATE OR REPLACE TABLE LOAN_MASTER (
+                                                loan_id             VARCHAR(50),
+                                                customer_id         VARCHAR(50),
+                                                loan_type           VARCHAR(30),
+                                                sanctioned_amount   NUMBER(15,2),
+                                                outstanding_balance NUMBER(15,2),
+                                                interest_rate       NUMBER(5,2),
+                                                tenure_months       INT,
+                                                start_date          DATE,
+                                                loan_status         VARCHAR(20),
+                                                ingestion_timestamp TIMESTAMP_NTZ
+                                            );
++-----------------------------------------+
+| status                                  |
+|-----------------------------------------|
+| Table LOAN_MASTER successfully created. |
++-----------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.203s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>CREATE OR REPLACE TABLE TRANSACTION_MASTER (
+                                                transaction_id      VARCHAR(50),
+                                                account_number      VARCHAR(50),
+                                                transaction_date    TIMESTAMP_NTZ,
+                                                transaction_type    VARCHAR(20),
+                                                amount              NUMBER(15,2),
+                                                balance_after_txn   NUMBER(15,2),
+                                                channel             VARCHAR(30),
+                                                status              VARCHAR(20),
+                                                ingestion_timestamp TIMESTAMP_NTZ
+                                            );
++------------------------------------------------+
+| status                                         |
+|------------------------------------------------|
+| Table TRANSACTION_MASTER successfully created. |
++------------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.245s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>COPY INTO CUSTOMER_MASTER
+                                            FROM @BANKING_DB.PUBLIC.banking_stage/customer_master/
+                                            FILE_FORMAT = (TYPE = 'PARQUET')
+                                            MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
++---------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                                                              | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|---------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| banking_stage/customer_master/part-00000-23084d28-2deb-4cc7-b741-27818eefd97a-c000.snappy.parquet | LOADED |      100000 |      100000 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++---------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 3.801s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>COPY INTO ACCOUNT_MASTER
+                                            FROM @BANKING_DB.PUBLIC.banking_stage/account_master/
+                                            FILE_FORMAT = (TYPE = 'PARQUET')
+                                            MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
++--------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                                                             | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|--------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| banking_stage/account_master/part-00000-31a6d74e-fb82-4b15-975c-e88e45585726-c000.snappy.parquet | LOADED |      200000 |      200000 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++--------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 3.142s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>COPY INTO BRANCH_MASTER
+                                            FROM @BANKING_DB.PUBLIC.banking_stage/branch_master/
+                                            FILE_FORMAT = (TYPE = 'PARQUET')
+                                            MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
++-------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                                                            | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|-------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| banking_stage/branch_master/part-00000-d7dcf31f-f840-4056-bfcd-063c5854e3a9-c000.snappy.parquet | LOADED |         500 |         500 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++-------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.516s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>COPY INTO CARD_MASTER
+                                            FROM @BANKING_DB.PUBLIC.banking_stage/card_master/
+                                            FILE_FORMAT = (TYPE = 'PARQUET')
+                                            MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
++-----------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                                                          | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|-----------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| banking_stage/card_master/part-00000-c439977e-0317-4cb3-8549-548205dc905b-c000.snappy.parquet | LOADED |      150000 |      150000 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++-----------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 1.027s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>COPY INTO FD_MASTER
+                                            FROM @BANKING_DB.PUBLIC.banking_stage/fd_master/
+                                            FILE_FORMAT = (TYPE = 'PARQUET')
+                                            MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
++---------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                                                        | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|---------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| banking_stage/fd_master/part-00000-27a1cca1-28f9-4089-ab12-6d38ab31316e-c000.snappy.parquet | LOADED |       40000 |       40000 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++---------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.797s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>COPY INTO LOAN_MASTER
+                                            FROM @BANKING_DB.PUBLIC.banking_stage/loan_master/
+                                            FILE_FORMAT = (TYPE = 'PARQUET')
+                                            MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
++-----------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                                                          | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|-----------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| banking_stage/loan_master/part-00000-6683e30a-9acb-444d-8da0-5d4d9b61c100-c000.snappy.parquet | LOADED |       50000 |       50000 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++-----------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.891s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>COPY INTO TRANSACTION_MASTER
+                                            FROM @BANKING_DB.PUBLIC.banking_stage/transaction_master/
+                                            FILE_FORMAT = (TYPE = 'PARQUET')
+                                            MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
++------------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                                                                 | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|------------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| banking_stage/transaction_master/part-00000-ce15b2f5-1d37-4e64-a470-8d3c227e36aa-c000.snappy.parquet | LOADED |     1000000 |     1000000 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++------------------------------------------------------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 5.038s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>SELECT 'CUSTOMER_MASTER' AS TABLE_NAME, COUNT(*) AS ROW_COUNT FROM CUSTOMER_MASTER
+                                            UNION ALL
+                                            SELECT 'ACCOUNT_MASTER', COUNT(*) FROM ACCOUNT_MASTER
+                                            UNION ALL
+                                            SELECT 'BRANCH_MASTER', COUNT(*) FROM BRANCH_MASTER
+                                            UNION ALL
+                                            SELECT 'CARD_MASTER', COUNT(*) FROM CARD_MASTER
+                                            UNION ALL
+                                            SELECT 'FD_MASTER', COUNT(*) FROM FD_MASTER
+                                            UNION ALL
+                                            SELECT 'LOAN_MASTER', COUNT(*) FROM LOAN_MASTER
+                                            UNION ALL
+                                            SELECT 'TRANSACTION_MASTER', COUNT(*) FROM TRANSACTION_MASTER;
++--------------------+-----------+
+| TABLE_NAME         | ROW_COUNT |
+|--------------------+-----------|
+| CUSTOMER_MASTER    |    100000 |
+| ACCOUNT_MASTER     |    200000 |
+| BRANCH_MASTER      |       500 |
+| CARD_MASTER        |    150000 |
+| FD_MASTER          |     40000 |
+| LOAN_MASTER        |     50000 |
+| TRANSACTION_MASTER |   1000000 |
++--------------------+-----------+
+7 Row(s) produced. Time Elapsed: 0.766s
+vishalsoma2229#COMPUTE_WH@BANKING_DB.PUBLIC>

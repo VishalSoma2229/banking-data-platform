@@ -106,3 +106,10 @@ services:
       - ./:/opt/airflow/project
 
     command: airflow scheduler
+
+  duckui:
+    image: ghcr.io/caioricciuti/duck-ui:latest
+    ports:
+    - "5522:5522"
+    volumes:
+    - ./duckdb/queries:/queries

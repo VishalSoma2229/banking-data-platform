@@ -2,220 +2,765 @@
 
 <div align="center">
 
-Production-inspired Banking Data Engineering Platform
+## Production-Inspired End-to-End Banking Data Engineering Platform
 
-Built using PySpark • Apache Airflow • MinIO • DuckDB • Docker
+**PySpark • Apache Airflow • MinIO • Duck-UI • Snowflake • Docker**
 
-⭐ If you find this project useful, consider giving it a star.
+A modular banking data platform demonstrating **data ingestion, distributed processing, data quality, orchestration, object storage, SQL analytics, and cloud data warehousing** through a production-inspired architecture.
 
-</div>
-
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
-![PySpark](https://img.shields.io/badge/PySpark-3.x-orange?style=for-the-badge&logo=apachespark)
-![Apache Airflow](https://img.shields.io/badge/Apache-Airflow-red?style=for-the-badge&logo=apacheairflow)
-![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker)
-![MinIO](https://img.shields.io/badge/MinIO-Object%20Storage-red?style=for-the-badge)
-![DuckDB](https://img.shields.io/badge/DuckDB-Analytics-yellow?style=for-the-badge)
-![PyTest](https://img.shields.io/badge/Testing-PyTest-green?style=for-the-badge&logo=pytest)
-
-A production-inspired **Data Engineering Platform** built using **PySpark**, **Apache Airflow**, **MinIO**, **DuckDB**, and the **Medallion Architecture (Bronze → Silver → Gold)**.
-
-Designed to demonstrate modern data engineering practices including orchestration, distributed processing, data validation, object storage, analytics, and automated testing.
+⭐ **If you find this project useful, consider giving it a star.**
 
 </div>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/PySpark-3.x-orange?style=for-the-badge&logo=apachespark" alt="PySpark">
+  <img src="https://img.shields.io/badge/Apache%20Airflow-Orchestration-red?style=for-the-badge&logo=apacheairflow" alt="Apache Airflow">
+  <img src="https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker" alt="Docker">
+  <img src="https://img.shields.io/badge/MinIO-S3%20Object%20Storage-red?style=for-the-badge" alt="MinIO">
+  <img src="https://img.shields.io/badge/Duck--UI-SQL%20Analytics-yellow?style=for-the-badge" alt="Duck-UI">
+  <img src="https://img.shields.io/badge/Snowflake-Cloud%20Warehouse-29B5E8?style=for-the-badge&logo=snowflake" alt="Snowflake">
+</p>
 
 ---
 
 # 📖 Project Overview
 
-Modern organizations continuously ingest large volumes of raw data from multiple sources. Before this data can be consumed by business users, it must pass through several processing stages to ensure quality, consistency, and reliability.
+Modern banking systems generate data across multiple business domains such as customers, accounts, cards, loans, fixed deposits, branches, and transactions.
 
-This project simulates a **real-world Banking Data Platform** where customer data flows through multiple layers of processing using the **Medallion Architecture**.
+This project simulates a **real-world Banking Data Platform** where source data is ingested and processed through a **Medallion Architecture** using PySpark.
 
-The pipeline demonstrates how enterprise data engineering teams build scalable ETL workflows using modern technologies.
+The platform combines:
 
-Current implementation includes a complete Customer Data Pipeline.
+- ⚡ **PySpark** for distributed data processing
+- 🔄 **Apache Airflow** for workflow orchestration
+- 🪣 **MinIO** as an S3-compatible data lake
+- 🦆 **Duck-UI** for interactive SQL analytics
+- ❄️ **Snowflake** for cloud data warehousing
+- 🐳 **Docker** for reproducible infrastructure
 
-Future versions will extend the platform to support:
-
-- Transactions
-- Loans
-- Fixed Deposits
-- Credit Cards
-- Accounts
-- Branches
+The design separates **orchestration, processing, storage, validation, transformation, and analytics**, making the platform modular and easier to extend.
 
 ---
 
 # 🎯 Project Objectives
 
-The primary objectives of this project are:
-
-- Build a modular PySpark ETL pipeline
-- Implement the Medallion Architecture
-- Store data inside an Object Storage Data Lake
-- Perform data validation and reject invalid records
-- Orchestrate workflows using Apache Airflow
-- Query processed data using DuckDB
-- Implement automated unit testing using PyTest
-- Design the project using production-style folder organization
-- Demonstrate scalable architecture suitable for enterprise data platforms
+- Build a modular PySpark ETL platform
+- Implement the **Bronze → Silver → Gold** Medallion Architecture
+- Process multiple banking domains
+- Store processed data as **Apache Parquet** in MinIO
+- Implement validation and rejected-record handling
+- Orchestrate domain pipelines using Apache Airflow
+- Query and explore Gold-layer Parquet using **Duck-UI**
+- Load banking data into Snowflake
+- Build an analytics-oriented Snowflake star schema
+- Run the same processing platform in **containerized or local mode**
+- Maintain a clean, production-inspired project structure
 
 ---
 
-# ✨ Features
+# ✨ Key Features
 
-## Data Engineering
+<table>
+<tr>
+<td width="50%">
 
-- End-to-End ETL Pipeline
-- Distributed Data Processing using PySpark
-- Modular Code Architecture
-- Configuration Driven Design
-- Production-style Folder Structure
+### 🧱 Data Engineering
 
-## Data Lake
+- End-to-end PySpark ETL
+- Distributed data processing
+- Explicit dataset schemas
+- Modular pipeline components
+- Configuration-driven design
+- Domain-wise processing
+
+</td>
+<td width="50%">
+
+### 🗃️ Data Lake
 
 - Bronze Layer
 - Silver Layer
 - Gold Layer
-- Rejected Records Layer
-- MinIO Object Storage
+- Rejected Layer
+- S3-compatible MinIO storage
+- Apache Parquet format
 
-## Data Processing
+</td>
+</tr>
 
-- Data Cleaning
-- Data Standardization
-- Duplicate Removal
-- Data Validation
-- Business Transformations
+<tr>
+<td>
 
-## Analytics
+### 🔄 Orchestration
 
-- DuckDB SQL Queries
-- Parquet Query Engine
-- Business-ready Gold Layer
+- Separate Airflow DAG per domain
+- Bronze → Silver → Gold dependencies
+- Scheduling and triggering
+- Task-level monitoring
+- Execution logs
 
-## Orchestration
+</td>
+<td>
 
-- Apache Airflow DAG
-- Sequential Task Execution
-- Pipeline Monitoring
+### 📊 Analytics
 
-## Testing
+- Duck-UI
+- Interactive SQL queries
+- Direct Parquet exploration
+- Gold-layer analytics
+- Business-ready datasets
 
-- Unit Tests using PyTest
-- Spark Session Fixtures
-- Transformation Tests
-- Validation Tests
-- Gold Layer Tests
+</td>
+</tr>
+
+<tr>
+<td>
+
+### ❄️ Snowflake
+
+- Snowflake database setup
+- Internal staging
+- Parquet ingestion
+- `COPY INTO`
+- Raw banking tables
+- Star-schema analytics
+- Advanced Snowflake features
+
+</td>
+<td>
+
+### 🐳 Infrastructure
+
+- Docker Compose
+- Airflow services
+- PostgreSQL
+- MinIO
+- Duck-UI
+- Containerized execution
+- Local execution support
+
+</td>
+</tr>
+</table>
 
 ---
-
-# 🌟 Project Highlights
-
-- Production-inspired Data Engineering Project
-- Built using PySpark and Apache Airflow
-- Implements Medallion Architecture (Bronze → Silver → Gold)
-- Object Storage using MinIO
-- DuckDB Analytics on Parquet Files
-- Modular and Scalable Project Structure
-- Automated Unit Testing with PyTest
-- Synthetic Banking Dataset
-
-
----
-
 
 # 🏗️ Architecture
 
 ```text
-                    Source CSV Files
-                           │
-                           ▼
-                  PySpark Ingestion
-                           │
-                           ▼
-                  Bronze Layer (Raw)
-                           │
-                           ▼
-              Validation & Cleaning
-                           │
-              ┌────────────┴────────────┐
-              ▼                         ▼
-      Silver Layer               Rejected Layer
-      (Validated)               (Invalid Records)
-              │
-              ▼
-      Business Transformations
-              │
-              ▼
-        Gold Layer (Analytics)
-              │
-              ▼
-          DuckDB SQL Queries
-              │
-              ▼
-      Business Insights & Reports
+                         ┌─────────────────────────┐
+                         │      Source Data        │
+                         │                         │
+                         │  CSV Banking Datasets   │
+                         │  Future REST APIs       │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │        PySpark          │
+                         │       Ingestion         │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                    ┌──────────────────────────────────┐
+                    │        🥉 BRONZE - MINIO         │
+                    │        Raw Parquet Data           │
+                    └────────────────┬─────────────────┘
+                                     │
+                                     ▼
+                    ┌──────────────────────────────────┐
+                    │     Validation & Cleaning        │
+                    └───────────────┬──────────────────┘
+                                    │
+                         ┌──────────┴──────────┐
+                         │                     │
+                         ▼                     ▼
+                ┌────────────────┐    ┌────────────────┐
+                │ 🥈 SILVER      │    │   REJECTED     │
+                │ Validated Data │    │ Invalid Records│
+                └───────┬────────┘    └────────────────┘
+                        │
+                        ▼
+                ┌────────────────────┐
+                │ Business           │
+                │ Transformations    │
+                └─────────┬──────────┘
+                          │
+                          ▼
+                ┌────────────────────┐
+                │ 🥇 GOLD            │
+                │ Analytics Ready    │
+                └─────────┬──────────┘
+                          │
+                 ┌────────┴─────────┐
+                 │                  │
+                 ▼                  ▼
+          ┌──────────────┐   ┌────────────────┐
+          │   Duck-UI    │   │   Snowflake    │
+          │ SQL Analytics│   │ Cloud Warehouse│
+          └──────────────┘   └───────┬────────┘
+                                     │
+                                     ▼
+                              ┌───────────────┐
+                              │ Star Schema   │
+                              │ & Analytics   │
+                              └───────────────┘
+
+                 ┌──────────────────────────────┐
+                 │       Apache Airflow         │
+                 │ Orchestrates domain DAGs     │
+                 └──────────────────────────────┘
 ```
 
 ---
 
-# 📊 Medallion Architecture
+# 🥇 Medallion Architecture
 
-This project follows the Medallion Architecture, a modern approach widely used in enterprise data engineering platforms.
+The data lake is organized into four logical areas.
 
-## 🥉 Bronze Layer
-
-Purpose:
-
-- Store raw ingested data
-- Preserve original source
-- No business transformations
-- Historical storage
-
-Contents:
-
-- Raw Customer Dataset
-
----
-
-## 🥈 Silver Layer
+### 🥉 Bronze — Raw
 
 Purpose:
 
-- Data Cleaning
-- Data Validation
-- Duplicate Removal
-- Schema Standardization
-- Quality Enforcement
+- Preserve ingested source data
+- Keep the raw landing layer
+- Store data before business transformations
+- Maintain a reliable replayable source
 
-Invalid records are automatically redirected to the Rejected Layer.
+```text
+banking-lake/bronze/
+├── account/
+├── branch/
+├── card/
+├── customer/
+├── fd/
+├── loan/
+└── transaction/
+```
 
----
-
-## 🥇 Gold Layer
+### 🥈 Silver — Validated
 
 Purpose:
 
-- Business Ready Data
-- Analytics Optimized
-- Reporting Layer
-- SQL Query Layer
+- Clean data
+- Standardize data
+- Validate records
+- Remove duplicates
+- Apply quality rules
+- Prepare data for business transformations
 
-DuckDB directly queries Gold Layer Parquet files for analytics.
+```text
+banking-lake/silver/
+├── account/
+├── branch/
+├── card/
+├── customer/
+├── fd/
+├── loan/
+└── transaction/
+```
 
+### 🥇 Gold — Analytics
+
+Purpose:
+
+- Business-ready datasets
+- Derived business attributes
+- Analytics and reporting
+- Downstream consumption
+
+```text
+banking-lake/gold/
+├── account/
+├── branch/
+├── card/
+├── customer/
+├── fd/
+├── loan/
+└── transaction/
+```
+
+### ❌ Rejected — Invalid Records
+
+Invalid records are separated from valid data instead of stopping the complete pipeline.
+
+```text
+banking-lake/rejected/
+├── account/
+├── branch/
+├── card/
+├── customer/
+├── fd/
+├── loan/
+└── transaction/
+```
+
+| Layer | Purpose |
+|---|---|
+| 🥉 Bronze | Raw source data |
+| 🥈 Silver | Cleaned and validated data |
+| 🥇 Gold | Business-ready analytics data |
+| ❌ Rejected | Invalid records retained for auditing |
 
 ---
+
+# 🏦 Banking Domains
+
+The platform processes seven banking domains:
+
+| Domain | Description |
+|---|---|
+| 👤 Customer | Customer master information |
+| 🏦 Account | Banking account information |
+| 🌳 Branch | Branch master information |
+| 💳 Card | Card information |
+| 💰 Fixed Deposit | Fixed-deposit information |
+| 💵 Loan | Loan information |
+| 💸 Transaction | Banking transaction information |
+
+Each domain follows the same fundamental processing pattern:
+
+```text
+Source
+  ↓
+Bronze
+  ↓
+Silver
+  ↓
+Gold
+```
+
+---
+
+# ⚙️ Airflow Orchestration
+
+Airflow acts as the **orchestration layer**, while the PySpark modules contain the actual processing logic.
+
+There is one DAG for each banking domain:
+
+```text
+airflow/dags/
+├── customer_pipeline_dag.py
+├── account_pipeline_dag.py
+├── branch_pipeline_dag.py
+├── card_pipeline_dag.py
+├── fd_pipeline_dag.py
+├── loan_pipeline_dag.py
+└── transaction_pipeline_dag.py
+```
+
+Each DAG follows:
+
+```text
+Bronze Task
+     │
+     ▼
+Silver Task
+     │
+     ▼
+Gold Task
+```
+
+### Separation of Responsibilities
+
+```text
+Apache Airflow
+      │
+      ├── Schedule
+      ├── Trigger
+      ├── Manage dependencies
+      ├── Monitor
+      └── Show task logs
+               │
+               ▼
+        PySpark Pipelines
+               │
+               ├── Ingestion
+               ├── Validation
+               ├── Transformation
+               └── Writing
+```
+
+This keeps **workflow orchestration separate from data-processing logic**.
+
+---
+
+# 🧩 PySpark Project Structure
+
+```text
+src/
+├── common/
+├── config/
+├── ingestion/
+├── models/
+├── pipelines/
+│   ├── customer_bronze_pipeline.py
+│   ├── customer_silver_pipeline.py
+│   ├── customer_gold_pipeline.py
+│   ├── account_pipeline.py
+│   ├── branch_pipeline.py
+│   ├── card_pipeline.py
+│   ├── fd_pipeline.py
+│   ├── loan_pipeline.py
+│   └── transaction_pipeline.py
+├── transformation/
+├── validations/
+└── writers/
+```
+
+The implementation keeps the codebase modular so that adding another banking domain does not require rewriting the platform.
+
+---
+
+# 🧹 Data Quality
+
+The platform validates records before they reach the analytics layer.
+
+Typical validation areas include:
+
+- Mandatory fields
+- Null values
+- Duplicate records
+- Schema/data-type consistency
+- Email format
+- PAN format
+- Domain/business rules
+
+Processing concept:
+
+```text
+                 Incoming Records
+                        │
+                        ▼
+                  Data Validation
+                        │
+               ┌────────┴────────┐
+               │                 │
+             Valid            Invalid
+               │                 │
+               ▼                 ▼
+            Silver           Rejected
+               │
+               ▼
+              Gold
+```
+
+---
+
+# 🪣 MinIO — S3-Compatible Data Lake
+
+MinIO provides the project's local **S3-compatible object storage**.
+
+The data lake contains:
+
+```text
+banking-lake/
+├── bronze/
+├── silver/
+├── gold/
+└── rejected/
+```
+
+Data is stored as **Apache Parquet**, providing an efficient format for Spark processing and analytical querying.
+
+---
+
+# 🔥 Containerized vs Local Execution
+
+A key design feature of this project is that the **same processing code can run in two environments**.
+
+The switch is controlled by the MinIO endpoint in:
+
+```text
+src/config/storage_config.py
+```
+
+### 🐳 Containerized Execution
+
+When the pipeline runs inside Docker:
+
+```python
+MINIO_ENDPOINT = "http://minio:9000"
+```
+
+Docker containers communicate with the MinIO service through:
+
+```text
+minio:9000
+```
+
+### 💻 Local Execution
+
+When the pipeline runs directly on your machine:
+
+```python
+MINIO_ENDPOINT = "http://localhost:8050"
+```
+
+The host machine reaches the MinIO container through the mapped port.
+
+### ⭐ One Small Configuration Change
+
+**A single change to the endpoint in `storage_config.py` can completely switch the project from containerized execution to local execution.**
+
+```text
+                       storage_config.py
+                              │
+                 ┌────────────┴────────────┐
+                 │                         │
+                 ▼                         ▼
+       http://minio:9000        http://localhost:8050
+                 │                         │
+                 ▼                         ▼
+         🐳 Docker Mode              💻 Local Mode
+```
+
+No redesign of the PySpark pipelines is required.
+
+This demonstrates **environment-specific configuration with reusable application logic**.
+
+---
+
+# 🦆 Duck-UI Analytics
+
+**Duck-UI** is used in this project as the interactive SQL interface for exploring the data lake.
+
+The Gold-layer Parquet data can be queried through the SQL interface.
+
+Example:
+
+```sql
+SELECT *
+FROM read_parquet(
+    's3://banking-lake/gold/customer/*.parquet'
+)
+LIMIT 10;
+```
+
+### Example Business Query
+
+```sql
+SELECT
+    country,
+    COUNT(*) AS total_customers
+FROM read_parquet(
+    's3://banking-lake/gold/customer/*.parquet'
+)
+GROUP BY country
+ORDER BY total_customers DESC;
+```
+
+Duck-UI provides a lightweight browser-based environment for **interactive SQL exploration and validation of the Gold layer**.
+
+---
+
+# ❄️ Snowflake Data Warehouse
+
+The project includes an end-to-end **Snowflake data warehouse implementation** for processing high-frequency transactional banking data into an analytics-ready **Star Schema**.
+
+## Key Snowflake Capabilities
+
+### 📥 Scalable Ingestion
+
+PySpark is used to preprocess and validate raw banking transaction data before bulk loading the data into **Snowflake internal stages**.
+
+```text
+Raw Banking Data
+      │
+      ▼
+   PySpark
+      │
+      ├── Schema Validation
+      ├── Data Processing
+      └── Transformation
+      │
+      ▼
+Snowflake Internal Stage
+```
+
+### ⭐ Star Schema Warehouse
+
+The analytics layer models banking data using a dimensional/star-schema approach.
+
+Core objects include:
+
+```text
+                    ┌─────────────────────┐
+                    │  fact_transactions  │
+                    └──────────┬──────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 │                           │
+                 ▼                           ▼
+        ┌─────────────────┐         ┌─────────────────┐
+        │  dim_customer   │         │   dim_account   │
+        └─────────────────┘         └─────────────────┘
+```
+
+Key tables include:
+
+- `fact_transactions`
+- `dim_customer`
+- `dim_account`
+
+This creates an analytics-ready structure for transactional banking analysis.
+
+### 🔄 Automated CDC
+
+Snowflake **Streams & Tasks** are implemented to support near-real-time incremental processing.
+
+The CDC flow uses:
+
+- Snowflake Streams to capture changes
+- Snowflake Tasks for automated execution
+- `MERGE` logic for incremental updates
+- Automated movement of changed data into the analytics layer
+
+```text
+Source / Staging Changes
+          │
+          ▼
+   Snowflake Stream
+          │
+          ▼
+      Snowflake Task
+          │
+          ▼
+    MERGE / Upsert
+          │
+          ▼
+     Star Schema
+```
+
+### 🔐 Data Security & Governance
+
+The Snowflake implementation also includes security and governance capabilities:
+
+- **Dynamic Data Masking (DDM)** for protecting sensitive/PII data
+- **Role-Based Access Control (RBAC)** for controlled access to data
+- Separation of access privileges based on roles
+
+This demonstrates how the warehouse can combine **analytics with enterprise data security and governance**.
+
+---
+
+## 🏗️ Snowflake Architecture
+
+```text
+┌──────────────────────┐
+│   Raw Banking Logs   │
+└──────────┬───────────┘
+           │
+           ▼
+┌────────────────────────────┐
+│ PySpark ETL & Schema       │
+│ Validation / Processing    │
+└────────────┬───────────────┘
+             │
+             ▼
+┌────────────────────────────┐
+│ Snowflake Internal Stage   │
+└────────────┬───────────────┘
+             │
+             ▼
+┌────────────────────────────┐
+│       Staging Area         │
+└────────────┬───────────────┘
+             │
+             ▼
+┌────────────────────────────┐
+│     Snowflake Stream       │
+│   Change Data Capture      │
+└────────────┬───────────────┘
+             │
+             ▼
+┌────────────────────────────┐
+│ Task Automation / MERGE    │
+└────────────┬───────────────┘
+             │
+             ▼
+┌────────────────────────────┐
+│      Star Schema DW        │
+│                            │
+│ fact_transactions          │
+│ dim_customer               │
+│ dim_account                │
+└────────────┬───────────────┘
+             │
+             ▼
+      Analytics / BI
+```
+
+### Mermaid Version
+
+```mermaid
+graph LR
+    A[Raw Banking Logs] --> B[PySpark ETL & Schema Validation]
+    B --> C[Snowflake Internal Stage]
+    C --> D[Staging Area]
+    D --> E[Snowflake Stream]
+    E --> F[Task Automation / MERGE]
+    F --> G[Star Schema DW]
+```
+
+---
+
+## 📁 Snowflake Project Structure
+
+```text
+snowflake/
+├── 01_setup/
+├── 02_raw_ingestion/
+├── 03_analytics_star_schema/
+└── 04_advanced_features/
+```
+
+The Snowflake implementation covers:
+
+| Area | Implementation |
+|---|---|
+| Ingestion | PySpark + Snowflake internal stages |
+| Processing | PySpark ETL & schema validation |
+| CDC | Snowflake Streams |
+| Automation | Snowflake Tasks |
+| Incremental Processing | `MERGE` |
+| Modeling | Star Schema |
+| Fact Table | `fact_transactions` |
+| Dimensions | `dim_customer`, `dim_account` |
+| Security | Dynamic Data Masking |
+| Governance | RBAC |
 
 # 📂 Project Structure
 
 ```text
 banking_platform/
 │
+├── .vscode/
+│
 ├── airflow/
 │   └── dags/
+│       ├── customer_pipeline_dag.py
+│       ├── account_pipeline_dag.py
+│       ├── branch_pipeline_dag.py
+│       ├── card_pipeline_dag.py
+│       ├── fd_pipeline_dag.py
+│       ├── loan_pipeline_dag.py
+│       └── transaction_pipeline_dag.py
+│
+├── assets/
+│   ├── airflow-details.jpg
+│   ├── airflow-graph.jpg
+│   ├── airflow-pipelines.jpg
+│   ├── duckdb-analysis.jpg
+│   ├── duckdb-setup.jpg
+│   ├── minio-bronze.jpg
+│   ├── minio-gold.jpg
+│   ├── minio-rejected.jpg
+│   ├── minio-root.jpg
+│   ├── minio-silver.jpg
+│   ├── snowflake-stages.jpg
+│   └── snowflake-tables.jpg
 │
 ├── datasets/
 │   └── source/
@@ -230,6 +775,19 @@ banking_platform/
 ├── duckdb/
 │   └── queries/
 │
+├── minio_store/
+│   └── banking-lake/
+│       ├── bronze/
+│       ├── silver/
+│       ├── gold/
+│       └── rejected/
+│
+├── snowflake/
+│   ├── 01_setup/
+│   ├── 02_raw_ingestion/
+│   ├── 03_analytics_star_schema/
+│   └── 04_advanced_features/
+│
 ├── src/
 │   ├── common/
 │   ├── config/
@@ -238,102 +796,95 @@ banking_platform/
 │   ├── pipelines/
 │   ├── transformation/
 │   ├── validations/
-│   ├── writers/
-│   └── utils/
+│   └── writers/
 │
-├── tests/
-│   └── customer/
-│
-├── Dockerfile
 ├── docker-compose.yml
+├── Dockerfile
+├── .gitignore
 ├── main.py
-├── pytest.ini
 ├── requirements.txt
 └── README.md
 ```
 
----
-
-# ⚙️ Technology Stack
-
-| Category | Technology |
-|-----------|------------|
-| Programming Language | Python |
-| Data Processing | PySpark |
-| Workflow Orchestration | Apache Airflow |
-| Containerization | Docker |
-| Data Lake | MinIO |
-| Query Engine | DuckDB |
-| Storage Format | Apache Parquet |
-| Testing | PyTest |
-| Version Control | Git & GitHub |
+> **Note:** `minio_store/` contains local MinIO runtime/object-storage data and should normally remain outside Git tracking. Keep generated storage data and MinIO internal files out of the repository.
 
 ---
 
-# 🔄 End-to-End Pipeline Flow
+# 🔄 End-to-End Data Flow
 
+```text
+             SOURCE
+               │
+               ▼
+       ┌────────────────┐
+       │ Banking CSVs   │
+       └───────┬────────┘
+               │
+               ▼
+          🐍 PySpark
+               │
+               ▼
+        🥉 Bronze / MinIO
+               │
+               ▼
+      Validation & Cleaning
+               │
+        ┌──────┴──────┐
+        │             │
+        ▼             ▼
+   🥈 Silver      ❌ Rejected
+        │
+        ▼
+ Business Transformations
+        │
+        ▼
+   🥇 Gold / MinIO
+        │
+   ┌────┴─────┐
+   │          │
+   ▼          ▼
+ Duck-UI   Snowflake
+   │          │
+   │          ▼
+   │      Star Schema
+   │          │
+   └────┬─────┘
+        ▼
+   Analytics / BI
 ```
-CSV Files
-      │
-      ▼
-PySpark Reads Source Data
-      │
-      ▼
-Bronze Layer
-      │
-      ▼
-Validation & Cleaning
-      │
-      ├──────────────► Rejected Layer
-      │
-      ▼
-Silver Layer
-      │
-      ▼
-Business Transformations
-      │
-      ▼
-Gold Layer
-      │
-      ▼
-DuckDB Analytics
-```
 
 ---
 
-# 🚀 Getting Started
+# 🐳 Docker Setup
 
 ## Prerequisites
 
-Install the following software before running the project.
+Install:
 
 - Python 3.11+
 - Docker Desktop
 - Git
-- Apache Airflow (via Docker Compose)
-- VS Code (Recommended)
+- VS Code (recommended)
 
 ---
 
-# 📥 Clone Repository
+## 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/DeepBreath222/banking-data-platform.git
+git clone https://github.com/VishalSoma2229/banking-data-platform.git
 
 cd banking-data-platform
 ```
 
 ---
 
-# 📦 Install Dependencies
+## 📦 Install Python Dependencies
 
-Create a virtual environment.
+Create a virtual environment:
 
 ```bash
 python -m venv .venv
 ```
-
-Activate it.
 
 ### Windows
 
@@ -347,7 +898,7 @@ Activate it.
 source .venv/bin/activate
 ```
 
-Install project dependencies.
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -355,420 +906,349 @@ pip install -r requirements.txt
 
 ---
 
-# 🐳 Start Docker Services
+# ▶️ Start the Containerized Platform
 
-Start Docker Desktop first.
-
-Then execute:
+Start Docker Desktop, then:
 
 ```bash
 docker compose up -d
 ```
 
-Verify all containers are running.
+Check services:
 
 ```bash
-docker ps
+docker compose ps
 ```
 
-Expected containers include:
+Typical services include:
 
-- Apache Airflow Scheduler
 - Apache Airflow Webserver
+- Apache Airflow Scheduler
 - Apache Airflow Triggerer
 - PostgreSQL
 - MinIO
+- Duck-UI
+
+### Local Service URLs
+
+| Service | URL |
+|---|---|
+| Airflow | `http://localhost:8080` |
+| MinIO API | `http://localhost:8050` |
+| MinIO Console | `http://localhost:8055` |
+| Duck-UI | `http://localhost:5522` |
 
 ---
 
-# ⚠️ Important Configuration
+# ▶️ Run the Pipelines
 
-Before running the project, configure the MinIO endpoint based on where the pipeline will execute.
+## Option 1 — Airflow
 
 Open:
 
+```text
+http://localhost:8080
 ```
-src/config/storage_config.py
+
+Then:
+
+1. Open the required DAG
+2. Enable the DAG
+3. Trigger the DAG
+4. Monitor task execution
+5. Inspect task logs
+6. Verify the output in MinIO
+
+Example:
+
+```text
+account_bronze
+      │
+      ▼
+account_silver
+      │
+      ▼
+account_gold
 ```
 
 ---
 
-## ▶ Local Execution (main.py)
+## Option 2 — Local Execution
 
-If running the pipeline directly from your local machine:
+Change the endpoint in:
 
-```bash
-python main.py
+```text
+src/config/storage_config.py
 ```
 
-Configure:
+to:
 
 ```python
 MINIO_ENDPOINT = "http://localhost:8050"
 ```
 
-Reason:
-
-The application runs on your host machine and accesses MinIO through the mapped Docker port.
-
----
-
-## ☁ Apache Airflow Execution
-
-If running using Apache Airflow:
-
-```bash
-docker compose up -d
-
-```
-
-Trigger the DAG from the Airflow UI.
-
-Configure:
-
-```python
-MINIO_ENDPOINT = "http://minio:9000"
-```
-
-Reason:
-
-Airflow runs inside Docker containers.
-
-Containers communicate using Docker's internal network.
-
-Therefore, Airflow cannot access MinIO using `localhost`.
-
-Instead, it must communicate using the Docker service name:
-
-```
-minio
-```
-
-Changing this endpoint is required before executing the pipeline through Airflow.
-
----
-
-# ▶ Running the Pipeline
-
-## Option 1 — Local Execution
-
-Execute:
+Then run:
 
 ```bash
 python main.py
 ```
 
-Pipeline execution order:
-
-```
-Read CSV
-      │
-      ▼
-Bronze
-      │
-      ▼
-Silver
-      │
-      ▼
-Gold
-```
+The same PySpark processing logic can execute directly on the host machine.
 
 ---
 
-## Option 2 — Airflow Execution
+# 🖼️ Project Screenshots
 
-Start services.
+All screenshots below are stored in the repository's `assets/` directory and are linked using **relative GitHub paths**, so they render directly on the project README.
 
-```bash
-docker compose up -d
-```
-
-Open Airflow.
-
-```
-http://localhost:8080
-```
-
-Login using your configured credentials.
-
-Locate the DAG.
-
-Enable the DAG.
-
-Trigger execution.
-
-Monitor execution from:
-
-- Grid View
-- Graph View
-- Task Logs
-
-Once completed, all processed data will be available inside MinIO.
-
----
-
----
-
-# 📊 Data Quality Pipeline
-
-The platform enforces data quality by validating records before they reach the analytics layer.
-
-## Validation Rules
-
-The Customer pipeline currently validates:
-
-- Mandatory fields
-- Duplicate records
-- Email format
-- PAN format
-- Data type consistency
-- Null values
-- Business rules
-
-Invalid records are automatically redirected to the **Rejected Layer**, allowing the main pipeline to continue processing valid records without interruption.
-
----
-
-# 🗃️ Data Lake Structure
-
-```
-banking-lake/
-│
-├── bronze/
-│   └── customer/
-│
-├── silver/
-│   └── customer/
-│
-├── gold/
-│   └── customer/
-│
-└── rejected/
-    └── customer/
-```
-
-Each layer serves a specific purpose:
-
-| Layer | Description |
-|--------|-------------|
-| Bronze | Raw ingested data |
-| Silver | Cleaned and validated data |
-| Gold | Business-ready analytics data |
-| Rejected | Invalid records for auditing |
-
----
-
-# 📈 DuckDB Analytics
-
-DuckDB is used as the analytical query engine over the Gold Layer Parquet files stored inside MinIO.
-
-Unlike traditional databases, DuckDB queries the Parquet files directly without requiring data to be imported.
-
-Example:
-
-```sql
-SELECT *
-FROM read_parquet(
-'s3://banking-lake/gold/customer/*.parquet'
-);
-```
-
-Example Business Query:
-
-```sql
-SELECT
-    country,
-    COUNT(*) AS total_customers
-FROM read_parquet(
-'s3://banking-lake/gold/customer/*.parquet'
-)
-GROUP BY country
-ORDER BY total_customers DESC;
-```
-
----
-
-# 📸 Project Screenshots
-
-## Apache Airflow
+## 🔄 Airflow
 
 ### DAG Details
 
 ![Airflow DAG Details](assets/airflow-details.jpg)
 
----
-
 ### DAG Graph
 
 ![Airflow DAG Graph](assets/airflow-graph.jpg)
 
----
+### All Pipelines
 
-# 🗄️ MinIO Object Storage
-
-### Banking Lake
-
-![Banking Lake](assets/minio-root.jpg)
+![Airflow Pipelines](assets/airflow-pipelines.jpg)
 
 ---
+
+## 🦆 Duck-UI
+
+### SQL Analysis
+
+![Duck-UI Analysis](assets/duckdb-analysis.jpg)
+
+### Duck-UI Setup
+
+![Duck-UI Setup](assets/duckdb-setup.jpg)
+
+---
+
+## 🪣 MinIO
+
+### Root Bucket
+
+![MinIO Root](assets/minio-root.jpg)
 
 ### Bronze Layer
 
-![Bronze Layer](assets/minio-bronze.jpg)
-
----
+![MinIO Bronze](assets/minio-bronze.jpg)
 
 ### Silver Layer
 
-![Silver Layer](assets/minio-silver.jpg)
-
----
+![MinIO Silver](assets/minio-silver.jpg)
 
 ### Gold Layer
 
-![Gold Layer](assets/minio-gold.jpg)
-
----
+![MinIO Gold](assets/minio-gold.jpg)
 
 ### Rejected Layer
 
-![Rejected Layer](assets/minio-rejected.jpg)
+![MinIO Rejected](assets/minio-rejected.jpg)
 
 ---
 
-# 🦆 DuckDB
+## ❄️ Snowflake
 
-### Customer Gold Data
+### Snowflake Stages
 
-![DuckDB Query](assets/duckdb-query.jpg)
+![Snowflake Stages](assets/snowflake-stages.jpg)
 
----
+### Snowflake Tables
 
-### Business Analytics Query
-
-![DuckDB Aggregation](assets/duckdb-aggregation.jpg)
-
----
-
-# 🧪 Unit Testing
-
-The project includes automated unit tests using **PyTest**.
-
-Current coverage includes:
-
-- Customer Transformation Tests
-- Validation Tests
-- Gold Layer Tests
-- Spark Session Fixtures
-
-Run tests using:
-
-```bash
-pytest -v
-```
-
-Current Status:
-
-```
-============================= test session starts =============================
-
-8 passed
-
-============================== 8 passed ======================================
-```
-
-### Test Results
-
-![PyTest](assets/pytest.jpg)
-
----
-
-# 📁 Datasets
-
-This repository contains **synthetic banking datasets** created exclusively for learning and demonstration purposes.
-
-Included datasets:
-
-- Customer
-- Account
-- Branch
-- Card
-- Loan
-- Fixed Deposit
-- Transaction
-
-Only the **Customer** pipeline is currently implemented.
-
-The remaining datasets are included to demonstrate how the platform can be extended to support additional banking domains.
+![Snowflake Tables](assets/snowflake-tables.jpg)
 
 ---
 
 # 🗺️ Roadmap
 
-## ✅ Version 1
+## ✅ Completed
 
-- Customer Pipeline
-- PySpark ETL
-- Bronze Layer
-- Silver Layer
-- Gold Layer
-- Rejected Layer
-- Apache Airflow
-- MinIO
-- DuckDB
-- Docker
-- Unit Testing
+- [x] Seven banking domains
+- [x] Customer pipeline
+- [x] Account pipeline
+- [x] Branch pipeline
+- [x] Card pipeline
+- [x] Fixed Deposit pipeline
+- [x] Loan pipeline
+- [x] Transaction pipeline
+- [x] PySpark ETL
+- [x] Bronze Layer
+- [x] Silver Layer
+- [x] Gold Layer
+- [x] Rejected Layer
+- [x] Apache Airflow orchestration
+- [x] Separate DAG per banking domain
+- [x] MinIO S3-compatible data lake
+- [x] Parquet storage
+- [x] Duck-UI analytics
+- [x] Docker infrastructure
+- [x] Snowflake raw ingestion
+- [x] Snowflake analytics/star-schema structure
+- [x] Snowflake Streams & Tasks for CDC
+- [x] Snowflake MERGE-based incremental processing
+- [x] Snowflake Dynamic Data Masking (DDM)
+- [x] Snowflake Role-Based Access Control (RBAC)
+- [x] Local + containerized execution support
+
+## 🚧 Planned Enhancements
+
+### 🌐 REST API Ingestion
+
+Add external REST APIs as another source:
+
+```text
+REST API
+   │
+   ▼
+Python API Ingestion
+   │
+   ▼
+Bronze / MinIO
+   │
+   ▼
+PySpark
+   │
+   ▼
+Silver → Gold
+```
+
+Potential capabilities:
+
+- API authentication
+- Pagination
+- Retry handling
+- Rate-limit handling
+- Incremental API ingestion
+- API-to-data-lake pipelines
+
+### ⚡ Streaming
+
+Introduce real-time transaction/event ingestion:
+
+```text
+Banking Events
+      │
+      ▼
+Kafka / Event Hubs / Kinesis
+      │
+      ▼
+Streaming Processing
+      │
+      ▼
+Bronze / Real-Time Layer
+      │
+      ▼
+Silver → Gold
+```
+
+Potential technologies:
+
+- Apache Kafka
+- Spark Structured Streaming
+- Apache Flink
+- Azure Event Hubs
+- AWS Kinesis
+
+> REST API ingestion and streaming are planned extensions and are **not represented as completed components** of the current implementation.
+
+### ☁️ Cloud Evolution
+
+The local architecture can evolve toward managed cloud services:
+
+```text
+MinIO       → Cloud Object Storage
+Airflow     → Managed Orchestration
+PySpark     → Cloud Spark
+Snowflake   → Cloud Data Warehouse
+```
 
 ---
 
-## 🚧 Upcoming Versions
+# 🔐 Security
 
-- Transaction Pipeline
-- Loan Pipeline
-- Fixed Deposit Pipeline
-- Credit Card Pipeline
-- Account Pipeline
-- Branch Pipeline
+Do **not** commit credentials to GitHub.
 
-The architecture has been designed to support multiple banking entities. Future releases will implement additional pipelines following the same Bronze → Silver → Gold processing pattern.
+Use environment variables or a local `.env` file:
 
+```text
+MINIO_ACCESS_KEY=your_key
+MINIO_SECRET_KEY=your_secret
+SNOWFLAKE_USER=your_user
+SNOWFLAKE_PASSWORD=your_password
+```
 
+Make sure `.env` is included in `.gitignore`.
+
+---
 
 # 🛠️ Troubleshooting
 
-## Airflow Cannot Read MinIO
+## Airflow Cannot Import `src`
 
-Verify the endpoint configured inside:
+If Airflow reports:
 
+```text
+ModuleNotFoundError: No module named 'src'
 ```
+
+make sure the project root is added to the Python path before importing project modules:
+
+```python
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+```
+
+---
+
+## Airflow Cannot Access MinIO
+
+Check:
+
+```text
 src/config/storage_config.py
 ```
 
-### Local Execution
-
-```python
-MINIO_ENDPOINT = "http://localhost:8050"
-```
-
-### Airflow Execution
+### Docker
 
 ```python
 MINIO_ENDPOINT = "http://minio:9000"
 ```
 
-This is the most common configuration issue because Airflow executes inside Docker while `main.py` executes on the host machine.
+### Local
+
+```python
+MINIO_ENDPOINT = "http://localhost:8050"
+```
+
+Remember:
+
+```text
+Docker container → minio:9000
+Host machine     → localhost:8050
+```
 
 ---
 
 ## Docker Containers Not Running
 
-Verify:
+Check:
 
 ```bash
-docker ps
+docker compose ps
 ```
 
-Restart services:
+Restart:
 
 ```bash
 docker compose down
@@ -778,23 +1258,30 @@ docker compose up -d
 
 ---
 
-## Unit Tests Failing
+# 📌 Engineering Principles Demonstrated
 
-Run:
+### Separation of Concerns
 
-```bash
-pytest -v
+```text
+Airflow       → Orchestration
+PySpark       → Processing
+MinIO         → Storage
+Duck-UI       → SQL Analytics
+Snowflake     → Cloud Warehouse
+Config        → Environment-specific settings
 ```
 
-Ensure all project dependencies have been installed.
+### Reusable Architecture
 
----
+Each banking domain follows the same processing pattern, making the platform easier to extend.
 
-# 🤝 Contributing
+### Environment Independence
 
-Contributions, suggestions, and improvements are welcome.
+The storage endpoint is configuration-driven, allowing the same processing code to run inside Docker or directly on the local machine.
 
-Feel free to fork the repository, create a feature branch, and submit a pull request.
+### Data Quality Isolation
+
+Invalid records are separated into a Rejected Layer instead of contaminating downstream analytics.
 
 ---
 
@@ -802,7 +1289,7 @@ Feel free to fork the repository, create a feature branch, and submit a pull req
 
 This project is released under the MIT License.
 
-You are free to use, modify, and distribute it for learning and educational purposes.
+You are free to use, modify and distribute it for learning and educational purposes.
 
 ---
 
@@ -810,9 +1297,10 @@ You are free to use, modify, and distribute it for learning and educational purp
 
 **Soma Vishal**
 
-Data Engineer | PySpark | Apache Airflow | DuckDB | Docker | Python
+**Data Engineer | PySpark | Apache Airflow | Snowflake | MinIO | Duck-UI | Python**
 
 GitHub:
+
 https://github.com/VishalSoma2229
 
 ---
@@ -821,8 +1309,8 @@ https://github.com/VishalSoma2229
 
 ### ⭐ If you like this project, please give it a Star!
 
-Thank you for visiting this repository.
+**Thank you for visiting this repository.**
 
-Happy Coding! 🚀
+**Happy Coding! 🚀**
 
 </div>
