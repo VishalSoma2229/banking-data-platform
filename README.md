@@ -1021,11 +1021,11 @@ All screenshots below are stored in the repository's `assets/` directory and are
 
 ### SQL Analysis
 
-![Duck-UI Analysis](assets/duckdb-analysis.jpg)
+![Duck-UI Analysis](assets/duckui-analysis.jpg)
 
 ### Duck-UI Setup
 
-![Duck-UI Setup](assets/duckdb-setup.jpg)
+![Duck-UI Setup](assets/duckui-setup.jpg)
 
 ---
 
